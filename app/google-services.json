@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "483583594039",
+    "project_id": "team-hackstreet-boys",
+    "storage_bucket": "team-hackstreet-boys.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483583594039:android:5008f4a42d39f7da8ab9b2",
+        "android_client_info": {
+          "package_name": "com.example.gitprojectsampe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARg9Vpdw3gUSnMPgYk2cdrtRC-i6uA6Tk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483583594039:android:3df68c48b8b7f4178ab9b2",
+        "android_client_info": {
+          "package_name": "com.example.hackstreet_boys"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARg9Vpdw3gUSnMPgYk2cdrtRC-i6uA6Tk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
