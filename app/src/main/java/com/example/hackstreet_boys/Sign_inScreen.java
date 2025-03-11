@@ -47,7 +47,7 @@ public class Sign_inScreen extends AppCompatActivity {
 
         // Set button click listeners
         loginButton.setOnClickListener(view -> handleLogin());
-        registerButton.setOnClickListener(view -> handleRegister());
+       // registerButton.setOnClickListener(view -> handleRegister());
 
         // Adjust padding for system bars (optional)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
