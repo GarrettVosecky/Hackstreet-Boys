@@ -1,0 +1,185 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CompletedJobsPage">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Completed Jobs"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Jobs Container -->
+    <LinearLayout
+        android:id="@+id/jobsContainer"
+        android:layout_width="350dp"
+        android:layout_height="550dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp">
+
+        <!-- Job 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="#0868a0"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="Job 1 Details"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="12dp"/>
+
+            <Button
+                android:id="@+id/dropdown1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:text="▼"
+                android:textColor="#0868a0"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <!-- Job 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="#0868a0"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="Job 2 Details"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="12dp"/>
+
+            <Button
+                android:id="@+id/dropdown2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="▼"
+                android:textSize="30sp"
+                android:background="@android:color/white"
+                android:textColor="#0868a0"/>
+        </LinearLayout>
+
+        <!-- Job 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="#0868a0"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="Job 3 Details"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="12dp"/>
+
+            <Button
+                android:id="@+id/dropdown3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="▼"
+                android:textSize="30sp"
+                android:background="@android:color/white"
+                android:textColor="#0868a0"/>
+        </LinearLayout>
+
+        <!-- Job 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="#0868a0"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="Job 4 Details"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="12dp"/>
+
+            <Button
+                android:id="@+id/dropdown4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="▼"
+                android:textSize="30sp"
+                android:background="@android:color/white"
+                android:textColor="#0868a0"/>
+        </LinearLayout>
+
+        <!-- Job 5 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="#0868a0"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="Job 5 Details"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="12dp"/>
+
+            <Button
+                android:id="@+id/dropdown5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="▼"
+                android:textSize="30sp"
+                android:background="@android:color/white"
+                android:textColor="#0868a0"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
