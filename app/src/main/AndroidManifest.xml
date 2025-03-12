@@ -24,6 +24,10 @@
             android:name=".forget_passwordScreen"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".Sign_UpScreen"
+            android:exported="true">
+        </activity>
 
     </application>
 
