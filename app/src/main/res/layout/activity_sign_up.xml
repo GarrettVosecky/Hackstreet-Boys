@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sign_UpScreen">
+    tools:context=".SignIn">
 
 
     <EditText
@@ -18,6 +18,7 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
+        android:text=""
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +36,7 @@
         android:hint="Password"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text=""
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,6 +110,10 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="318dp"
+        android:layout_marginBottom="205dp"
         android:text="Go Back"
         app:layout_constraintBottom_toTopOf="@+id/inputText"
         app:layout_constraintEnd_toEndOf="parent"
