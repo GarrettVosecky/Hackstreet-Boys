@@ -1,10 +1,15 @@
 package com.example.hackstreet_boys;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -39,8 +44,9 @@ public class Sign_inScreen extends AppCompatActivity {
         // Link UI elements
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
-      //  loginButton = findViewById(R.id.loginButton);
-       // registerButton = findViewById(R.id.registerButton);
+        loginButton = findViewById(R.id.loginButton);
+      //  registerButton = findViewById(R.id.registerButton);
+        errorTextView = findViewById(R.id.errorTextView); // Initialize the TextView
 
         // Set button click listeners
         loginButton.setOnClickListener(view -> handleLogin());
