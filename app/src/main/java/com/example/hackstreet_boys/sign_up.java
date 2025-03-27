@@ -50,9 +50,8 @@ public class sign_up extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(sign_up.this, "Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                        // Navigate to the main activity (Replace MainActivity.class with your main screen)
-                        startActivity(new Intent(sign_up.this, Sign_inScreen.class));
-                        finish();
+
+
                     } else {
                         Toast.makeText(sign_up.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }

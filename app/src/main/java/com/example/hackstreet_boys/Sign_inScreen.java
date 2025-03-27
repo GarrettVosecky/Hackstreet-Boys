@@ -1,5 +1,6 @@
 package com.example.hackstreet_boys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,12 +43,12 @@ public class Sign_inScreen extends AppCompatActivity {
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
-      //  registerButton = findViewById(R.id.registerButton);
+        //  registerButton = findViewById(R.id.registerButton);
         errorTextView = findViewById(R.id.errorTextView); // Initialize the TextView
 
         // Set button click listeners
         loginButton.setOnClickListener(view -> handleLogin());
-       // registerButton.setOnClickListener(view -> handleRegister());
+        // registerButton.setOnClickListener(view -> handleRegister());
 
         // Adjust padding for system bars (optional)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -79,7 +80,10 @@ public class Sign_inScreen extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = auth.getCurrentUser();
                             Toast.makeText(Sign_inScreen.this, "Login successful: " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                            // You can now navigate to another activity or update UI
+
+                            // Navigate to the CompletedJobsPage activity after login success
+                            startActivity(new Intent(Sign_inScreen.this, CompletedJobsPage.class));
+                            finish(); // Optional: finish the current activity to prevent going back to it
                         } else {
                             // Sign in fails
                             try {
@@ -92,7 +96,6 @@ public class Sign_inScreen extends AppCompatActivity {
                                 errorTextView.setText("Error: User not found");
                             } catch (FirebaseAuthInvalidCredentialsException e) {
                                 // Incorrect password or invalid email
-                                // Use a generic error message for security
                                 errorTextView.setVisibility(View.VISIBLE);
                                 errorTextView.setText("Error: Invalid username or password.");
                             } catch (Exception e) {
@@ -102,58 +105,6 @@ public class Sign_inScreen extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                                 errorTextView.setVisibility(View.VISIBLE);
                                 errorTextView.setText("Error: Authentication failed.");
-                            }
-                        }
-                    }
-                });
-    }
-
-    // Handle Registration
-    private void handleRegister() {
-        String email = usernameEditText.getText().toString().trim();
-        String password = passwordEditText.getText().toString().trim();
-
-        // Clear any previous error message
-        errorTextView.setVisibility(View.INVISIBLE);
-        errorTextView.setText("");
-
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Enter email and password", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Firebase register method
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = auth.getCurrentUser();
-                            Toast.makeText(Sign_inScreen.this, "Registration successful: " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                            // You can now navigate to another activity or update UI
-                        } else {
-                            // Registration fails
-                            try {
-                                throw task.getException();
-                            } catch (FirebaseAuthUserCollisionException e) {
-                                // User already exists
-                                usernameEditText.setError("User already exists");
-                                usernameEditText.requestFocus();
-                                errorTextView.setVisibility(View.VISIBLE);
-                                errorTextView.setText("Error: User already exists");
-                            } catch (FirebaseAuthInvalidCredentialsException e) {
-                                // Invalid email
-                                usernameEditText.setError("Invalid email");
-                                usernameEditText.requestFocus();
-                                errorTextView.setVisibility(View.VISIBLE);
-                                errorTextView.setText("Error: Invalid email");
-                            } catch (Exception e) {
-                                // Handle other exceptions
-                                Log.e(TAG, "Registration error", e);
-                                Toast.makeText(Sign_inScreen.this, "Registration failed.",
-                                        Toast.LENGTH_SHORT).show();
-                                errorTextView.setVisibility(View.VISIBLE);
-                                errorTextView.setText("Error: Registration failed.");
                             }
                         }
                     }
