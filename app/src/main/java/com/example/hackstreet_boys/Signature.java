@@ -12,6 +12,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Signature extends AppCompatActivity {
+    private DrawingView drawing;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,35 +28,9 @@ public class Signature extends AppCompatActivity {
         drawPaint.setStyle(Paint.Style.STROKE);
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
-
-        SignaturePanel.setOnTouchListener(new View.OnTouchListener() {
-            int LastX;
-            int LastY;
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int x = (int) event.getX();
-                int y = (int) event.getY();
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        drawCanvas.drawLine(LastX, LastY, x, y, drawPaint);
-                        Log.d("Tag", x + " " + y);
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                }
-
-
-
-                return true;
-            }
-        });
-        {
-
-        };
-
+        Log.d("Setup", "hi");
+        drawing = new DrawingView(findViewById(R.id.panel).getContext());
+        drawing.onDraw(drawCanvas);
+        Log.d("Setup", "ok");
     }
 }
