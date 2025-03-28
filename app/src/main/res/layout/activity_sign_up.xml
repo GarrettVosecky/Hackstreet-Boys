@@ -16,8 +16,8 @@
         android:layout_marginEnd="59dp"
         android:layout_marginBottom="421dp"
         android:ems="10"
-        android:hint="Username"
         android:inputType="textPersonName"
+        android:hint="Username"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,9 +32,9 @@
         android:layout_marginTop="82dp"
         android:layout_marginEnd="59dp"
         android:layout_marginBottom="284dp"
-        android:hint="Password"
         android:ems="10"
         android:inputType="textPersonName"
+        android:hint="Password"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,12 +108,14 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="318dp"
+        android:layout_marginBottom="205dp"
         android:text="Go Back"
         app:layout_constraintBottom_toTopOf="@+id/inputText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.124" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
