@@ -14,8 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -45,12 +43,12 @@ public class Sign_inScreen extends AppCompatActivity {
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
-      //  registerButton = findViewById(R.id.registerButton);
+        //  registerButton = findViewById(R.id.registerButton);
         errorTextView = findViewById(R.id.errorTextView); // Initialize the TextView
 
         // Set button click listeners
         loginButton.setOnClickListener(view -> handleLogin());
-       // registerButton.setOnClickListener(view -> handleRegister());
+        // registerButton.setOnClickListener(view -> handleRegister());
 
         // Adjust padding for system bars (optional)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -82,7 +80,10 @@ public class Sign_inScreen extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = auth.getCurrentUser();
                             Toast.makeText(Sign_inScreen.this, "Login successful: " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                            // You can now navigate to another activity or update UI
+
+                            // Navigate to the CompletedJobsPage activity after login success
+                            startActivity(new Intent(Sign_inScreen.this, CompletedJobsPage.class));
+                            finish(); // Optional: finish the current activity to prevent going back to it
                         } else {
                             // Sign in fails
                             try {
@@ -95,7 +96,6 @@ public class Sign_inScreen extends AppCompatActivity {
                                 errorTextView.setText("Error: User not found");
                             } catch (FirebaseAuthInvalidCredentialsException e) {
                                 // Incorrect password or invalid email
-                                // Use a generic error message for security
                                 errorTextView.setVisibility(View.VISIBLE);
                                 errorTextView.setText("Error: Invalid username or password.");
                             } catch (Exception e) {
