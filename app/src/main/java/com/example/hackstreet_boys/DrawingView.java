@@ -1,10 +1,13 @@
 package com.example.hackstreet_boys;
 
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.graphics.*;
 import android.content.Context;
+
+import androidx.annotation.Nullable;
 
 public class DrawingView extends View {
 
@@ -13,7 +16,7 @@ public class DrawingView extends View {
     private Paint canvasPaint;
     private Canvas drawCanvas;
 
-    public DrawingView(Context context) {
+    public DrawingView(Context context, @Nullable AttributeSet attrs) {
         super(context);
         Log.d("Setup", "hi");
         setupDrawing();
@@ -26,9 +29,8 @@ public class DrawingView extends View {
         drawCanvas = new Canvas();
         drawPaint.setColor(Color.BLACK);
         drawPaint.setAntiAlias(true);
-        drawPaint.setStrokeWidth(5);
+        drawPaint.setStrokeWidth(10f);
         drawPaint.setStyle(Paint.Style.STROKE);
-        drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
 
         canvasPaint = new Paint(Paint.DITHER_FLAG);
@@ -56,19 +58,22 @@ public class DrawingView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 drawPath.moveTo(touchX, touchY);
+                invalidate();
                 break;
             case MotionEvent.ACTION_MOVE:
                 drawPath.lineTo(touchX, touchY);
+                drawPath.moveTo(touchX, touchY);
+                invalidate();
                 Log.d("Tag", touchX + " " + touchY);
                 break;
             case MotionEvent.ACTION_UP:
-                drawCanvas.drawPath(drawPath, drawPaint);
-                drawPath.reset();
+                //drawCanvas.drawPath(drawPath, drawPaint);
+                //drawPath.reset();
+                invalidate();
                 break;
             default:
                 return false;
         }
-        invalidate();
         return true;
     }
 }
