@@ -44,7 +44,7 @@ public class Sign_inScreen extends AppCompatActivity {
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
         //  registerButton = findViewById(R.id.registerButton);
-        errorTextView = findViewById(R.id.errorTextView); // Initialize the TextView
+      //  errorTextView = findViewById(R.id.errorTextView); // Initialize the TextView
 
         // Set button click listeners
         loginButton.setOnClickListener(view -> handleLogin());
