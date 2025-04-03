@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/GetInputPassword"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Sign_inScreen">
@@ -40,7 +40,7 @@
 
 
         <EditText
-            android:id="@+id/usernameEditText"
+            android:id="@+id/input1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -69,7 +69,7 @@
             app:layout_constraintTop_toBottomOf="@+id/extra_textbox2" />
 
         <EditText
-            android:id="@+id/passwordEditText"
+            android:id="@+id/input2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -93,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
+        app:layout_constraintTop_toBottomOf="@+id/input2"
         app:layout_constraintVertical_bias="0.7" />
 
     <Button
