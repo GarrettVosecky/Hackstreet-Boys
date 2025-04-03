@@ -6,17 +6,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.hackstreet_boys.DrawingView
-        android:id="@+id/panel"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="60dp"
-        android:background="@color/white"
+    <View
+        android:id="@+id/VisualPad"
+        android:layout_width="380dp"
+        android:layout_height="190dp"
+        android:background="#BABABA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="300dp"
+        android:layout_height="28dp"
+        android:text="Draw your Signature below"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/VisualPad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.967" />
+
+    <Button
+        android:id="@+id/clear"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="131dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#F44336"
+        android:text="Clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/VisualPad"
+        app:layout_constraintTop_toBottomOf="@id/VisualPad" />
+
+    <Button
+        android:id="@+id/save"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="131dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="@id/VisualPad"
+        app:layout_constraintTop_toBottomOf="@id/VisualPad" />
+
+    <com.example.hackstreet_boys.DrawingView
+        android:id="@+id/pad"
+        android:layout_width="380dp"
+        android:layout_height="190dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

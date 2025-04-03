@@ -34,7 +34,6 @@ public class DrawingView extends View {
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
 
         canvasPaint = new Paint(Paint.DITHER_FLAG);
-        drawCanvas.drawLine(0,0,100,100, drawPaint);
         Log.d("Setup", "cool");
     }
 
@@ -47,7 +46,7 @@ public class DrawingView extends View {
     protected void onDraw(Canvas canvas) {
         Log.d("Tag", "drawing.");
         canvas.drawPath(drawPath, drawPaint);
-        canvas.drawPath(drawPath, canvasPaint);
+       // canvas.drawPath(drawPath, canvasPaint);
     }
 
     public boolean onTouchEvent(MotionEvent event) {
@@ -75,5 +74,10 @@ public class DrawingView extends View {
                 return false;
         }
         return true;
+    }
+
+    public void clearDrawing()
+    {
+        drawPath.reset();
     }
 }
