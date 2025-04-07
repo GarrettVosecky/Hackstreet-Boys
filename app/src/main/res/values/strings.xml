@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Hackstreet-Boys</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="go_back">Go Back</string>
 </resources>

@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HackstreetBoys"
         tools:targetApi="31">
-        <activity
-            android:name=".CompletedJobsPage"
-            android:exported="false" />
+
         <activity
             android:name=".Sign_inScreen"
             android:exported="true">
@@ -25,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".sign_up"
+            android:name=".Sign_up"
             android:exported="true" />
     </application>
 

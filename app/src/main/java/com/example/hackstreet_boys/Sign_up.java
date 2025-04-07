@@ -2,6 +2,7 @@ package com.example.hackstreet_boys;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class sign_up extends AppCompatActivity {
+public class Sign_up extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText emailField, passwordField;
@@ -30,9 +31,12 @@ public class sign_up extends AppCompatActivity {
         backButton = findViewById(R.id.btnBack);
 
         signInButton.setOnClickListener(view -> signInUser());
+        backButton = findViewById(R.id.btnBack);
 
         backButton.setOnClickListener(view -> {
-            finish(); // Goes back to the previous activity
+            Intent intent = new Intent(Sign_up.this, Sign_inScreen.class);
+            startActivity(intent);
+            finish(); // Optional: closes the current activity
         });
     }
 
@@ -49,11 +53,11 @@ public class sign_up extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
-                        Toast.makeText(sign_up.this, "Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Sign_up.this, "Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
 
 
                     } else {
-                        Toast.makeText(sign_up.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Sign_up.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

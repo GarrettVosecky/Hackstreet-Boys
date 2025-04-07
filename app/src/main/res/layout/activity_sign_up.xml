@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sign_UpScreen">
+    tools:context=".Sign_up">
 
 
     <EditText
@@ -17,7 +17,7 @@
         android:layout_marginBottom="421dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Username"
+        android:hint="@string/username"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         android:layout_marginBottom="284dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Password"
+        android:hint="@string/password"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
         android:layout_marginTop="81dp"
         android:layout_marginEnd="124dp"
         android:layout_marginBottom="586dp"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +67,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="177dp"
         android:layout_marginBottom="1dp"
-        android:text="Email"
+        android:text="@string/email"
         android:textSize="23sp"
         app:layout_constraintBottom_toTopOf="@+id/inputText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +112,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="318dp"
         android:layout_marginBottom="205dp"
-        android:text="Go Back"
+        android:text="@string/go_back"
         app:layout_constraintBottom_toTopOf="@+id/inputText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
