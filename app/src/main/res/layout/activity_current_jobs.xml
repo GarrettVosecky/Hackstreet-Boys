@@ -7,4 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".CurrentJobs">
 
+    <Button
+        android:id="@+id/completedjobs"
+        android:layout_width="213dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="99dp"
+        android:layout_marginBottom="8dp"
+        android:text="completed jobs"
+        android:textAlignment="gravity"
+        android:textSize="23sp"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jobsContainer"
+        app:layout_constraintVertical_bias="0.831" />
 </androidx.constraintlayout.widget.ConstraintLayout>
