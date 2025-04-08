@@ -19,7 +19,7 @@ public class DrawingView extends View {
     private Bitmap canvasBitmap;
 
     public DrawingView(Context context, @Nullable AttributeSet attrs) {
-        super(context);
+        super(context, attrs);
         Log.d("Setup", "hi");
         init();
     }
@@ -47,7 +47,6 @@ public class DrawingView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Log.d("Tag", "drawing.");
         canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
         canvas.drawPath(drawPath, drawPaint);
     }
@@ -56,7 +55,6 @@ public class DrawingView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         float touchX = event.getX();
         float touchY = event.getY();
-        Log.d("Tag", touchX + " " + touchY);
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:

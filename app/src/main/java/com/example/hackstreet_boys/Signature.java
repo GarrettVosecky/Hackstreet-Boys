@@ -9,15 +9,16 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Signature extends AppCompatActivity {
-    private com.example.hackstreet_boys.DrawingView drawingView;
+    private DrawingView drawingView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Setup", "CREATION!");
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.signature);
-
-        DrawingView drawingView = findViewById(R.id.pad);
+        Log.d("Setup", "DECLARE!");
+        drawingView = findViewById(R.id.pad);
         if (drawingView == null) {
             Log.e("tag", "null");
         }
@@ -27,7 +28,7 @@ public class Signature extends AppCompatActivity {
         ClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                drawingView.clearDrawing();
             }
         });
     }
