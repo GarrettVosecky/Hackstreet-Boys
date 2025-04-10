@@ -1,4 +1,5 @@
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -178,35 +179,25 @@
                 android:textSize="30sp"
                 android:background="@android:color/white"
                 android:textColor="#0868a0"/>
-
-            <LinearLayout
-                android:id="@+id/main"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <!-- Other Views -->
-
-            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="213dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="99dp"
-        android:layout_marginBottom="8dp"
-        android:text="current jobs"
-        android:textAlignment="gravity"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="47dp"
+        android:text="Current Jobs"
         android:textSize="24sp"
-        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jobsContainer"
-        app:layout_constraintVertical_bias="0.831" />
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
