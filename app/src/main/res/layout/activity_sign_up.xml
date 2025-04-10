@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/inputText"
+        android:id="@+id/newPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="59dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toBottomOf="@+id/emailDescript" />
 
     <EditText
-        android:id="@+id/inputText2"
+        android:id="@+id/confirmPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="59dp"
@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputText"
+        app:layout_constraintTop_toBottomOf="@+id/newPasswordEditText"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -69,7 +69,7 @@
         android:layout_marginBottom="1dp"
         android:text="@string/email"
         android:textSize="23sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputText"
+        app:layout_constraintBottom_toTopOf="@+id/newPasswordEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -84,11 +84,11 @@
         android:layout_marginBottom="2dp"
         android:text="Password"
         android:textSize="23sp"
-        app:layout_constraintBottom_toTopOf="@+id/inputText2"
+        app:layout_constraintBottom_toTopOf="@+id/confirmPasswordEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputText" />
+        app:layout_constraintTop_toBottomOf="@+id/newPasswordEditText" />
 
     <Button
         android:id="@+id/btnContinue"
@@ -102,7 +102,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputText2" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordEditText" />
 
     <Button
         android:id="@+id/btnBack"
@@ -113,7 +113,7 @@
         android:layout_marginEnd="318dp"
         android:layout_marginBottom="205dp"
         android:text="@string/go_back"
-        app:layout_constraintBottom_toTopOf="@+id/inputText"
+        app:layout_constraintBottom_toTopOf="@+id/newPasswordEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -25,6 +25,9 @@
         <activity
             android:name=".Sign_up"
             android:exported="true" />
+        <activity
+            android:name=".forget_passwordScreen"
+            android:exported="true" />
     </application>
 
 </manifest>

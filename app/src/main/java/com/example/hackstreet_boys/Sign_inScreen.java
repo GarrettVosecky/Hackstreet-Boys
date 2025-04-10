@@ -1,6 +1,8 @@
 package com.example.hackstreet_boys;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Sign_inScreen extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText usernameEditText, passwordEditText;
-    private Button loginButton, registerButton;
+    private Button loginButton, registerButton, forgotPassButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +30,26 @@ public class Sign_inScreen extends AppCompatActivity {
         // Link UI elements
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
+
         loginButton = findViewById(R.id.loginButton);
-        //registerButton = findViewById(R.id.registerButton);
+        registerButton = findViewById(R.id.registerButton);
+        forgotPassButton = findViewById(R.id.forgotPassButton);
 
         // Set button click listeners
         loginButton.setOnClickListener(view -> handleLogin());
-        //registerButton.setOnClickListener(view -> handleRegister());
+
+        registerButton.setOnClickListener(view -> {
+            Intent intent = new Intent(Sign_inScreen.this, Sign_up.class);
+            startActivity(intent);
+            finish(); // Optional: closes the current activity
+        });
+
+        forgotPassButton.setOnClickListener(view -> {
+            Intent intent = new Intent(Sign_inScreen.this, forget_passwordScreen.class);
+            //Log.d("TEST", "Forgot Password Button pressed");
+            startActivity(intent);
+            finish(); // Optional: closes the current activity
+        });
 
         // Adjust padding for system bars (optional)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
