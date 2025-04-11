@@ -8,9 +8,6 @@
       <SelectionState runConfigName="Sign_inScreen (5)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="CompletedJobsPage (1)">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="CompletedJobsPage (2)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
