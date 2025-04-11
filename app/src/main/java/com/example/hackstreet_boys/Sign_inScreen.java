@@ -42,13 +42,12 @@ public class Sign_inScreen extends AppCompatActivity {
         // Link UI elements
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
-        loginButton = findViewById(R.id.loginButton);
-        //  registerButton = findViewById(R.id.registerButton);
-        errorTextView = findViewById(R.id.errorTextView); // Initialize the TextView
+      //  loginButton = findViewById(R.id.loginButton);
+       // registerButton = findViewById(R.id.registerButton);
 
         // Set button click listeners
         loginButton.setOnClickListener(view -> handleLogin());
-        // registerButton.setOnClickListener(view -> handleRegister());
+        registerButton.setOnClickListener(view -> handleRegister());
 
         // Adjust padding for system bars (optional)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
