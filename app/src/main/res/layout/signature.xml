@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#739D69">
 
     <View
         android:id="@+id/VisualPad"
@@ -18,11 +19,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="300dp"
-        android:layout_height="28dp"
+        android:layout_width="318dp"
+        android:layout_height="36dp"
         android:text="Draw your Signature below"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/VisualPad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -36,7 +39,7 @@
         android:layout_width="131dp"
         android:layout_height="64dp"
         android:layout_marginTop="12dp"
-        android:backgroundTint="#F44336"
+        android:backgroundTint="@color/black"
         android:text="Clear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -49,7 +52,7 @@
         android:layout_width="131dp"
         android:layout_height="64dp"
         android:layout_marginTop="12dp"
-        android:backgroundTint="#3F51B5"
+        android:backgroundTint="@color/black"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="@id/VisualPad"
         app:layout_constraintTop_toBottomOf="@id/VisualPad" />
@@ -58,6 +61,7 @@
         android:id="@+id/pad"
         android:layout_width="380dp"
         android:layout_height="190dp"
+        android:background="#D9D9D9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
