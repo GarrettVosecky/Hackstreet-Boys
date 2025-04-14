@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.hackstreet_boys">
 
     <application
         android:allowBackup="true"
@@ -12,45 +13,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HackstreetBoys"
         tools:targetApi="31">
-        <activity
-            android:name=".CompletedJobsPage"
-            android:exported="false" />
+
+        <!-- Sign In (Launcher) -->
         <activity
             android:name=".Sign_inScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- Completed Jobs Page (Explicit Launch & Deep Linking Support) -->
+        <!-- Sign Up -->
         <activity
-            android:name=".CompletedJobsPage"
-            android:exported="true">
-            <intent-filter>
-                <!-- Allows launching via an explicit intent -->
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
+            android:name=".sign_up"
+            android:exported="true" />
 
-                <!-- Enables deep linking via a web URL -->
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https"
-                    android:host="yourapp.com"
-                    android:path="/completed"/>
-            </intent-filter>
-        </activity>
-
-        <!-- Current Jobs Activity (Internal Only) -->
+        <!-- Current Jobs -->
         <activity
             android:name=".CurrentJobs"
             android:exported="false" />
 
-        <!-- Sign Up Screen -->
+        <!-- Completed Jobs -->
         <activity
-            android:name=".sign_up"
-            android:exported="true" />
+            android:name=".CompletedJobsPage"
+            android:exported="true">
+            <intent-filter>
+                <!-- Explicit intent support -->
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- Deep linking support -->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="yourapp.com"
+                    android:path="/completed" />
+            </intent-filter>
+        </activity>
+
+        <!-- Exit Activity -->
+        <activity
+            android:name=".Exit"
+            android:exported="false"
+            android:label="@string/title_activity_exit"
+            android:theme="@style/Theme.HackstreetBoys" />
 
     </application>
 

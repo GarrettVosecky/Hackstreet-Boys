@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Hackstreet-Boys</string>
+    <string name="title_activity_exit">Exit</string>
 </resources>
