@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Hackstreet-Boys</string>
+    <string name="app_name">Hackstreet Boys</string>
+    <!-- Store your API key here -->
+    <string name="maps_api_key">YOUR_GOOGLE_MAPS_API_KEY</string>
 </resources>
