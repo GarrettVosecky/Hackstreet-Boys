@@ -1,8 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     id 'com.google.gms.google-services'
-}
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 
+
+
+}
 android {
     namespace 'com.example.hackstreet_boys'
     compileSdk 35
@@ -23,9 +26,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        viewBinding true
+        buildConfig true // ✅ Enables BuildConfig so secrets plugin can inject fields
     }
 }
 
@@ -37,6 +46,13 @@ dependencies {
     implementation libs.material
     implementation libs.activity
     implementation libs.constraintlayout
+    implementation libs.play.services.maps
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
