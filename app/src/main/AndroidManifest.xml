@@ -21,12 +21,12 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/maps_api_key" />
 
-        <activity
-            android:name=".CompletedJobsPage"
-            android:exported="false" />
+
+
+
         <activity
             android:name=".Sign_inScreen"
-            android:exported="true">
+            android:exported="true"/>
         <activity
             android:name=".MapsActivity"
             android:exported="true"
@@ -64,6 +64,9 @@
         <activity
             android:name=".sign_up"
             android:exported="true" />
+
+
+
 
     </application>
 

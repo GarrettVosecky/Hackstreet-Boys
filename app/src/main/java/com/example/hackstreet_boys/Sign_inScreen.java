@@ -34,7 +34,7 @@ public class Sign_inScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in_screen);  // Your sign-in XML layout
+        setContentView(R.layout.sign_in_screen);  // Your sign-in XML layout
 
         // Initialize FirebaseAuth instance
         auth = FirebaseAuth.getInstance();
