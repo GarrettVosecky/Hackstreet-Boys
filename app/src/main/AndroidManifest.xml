@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.hackstreet_boys">
 
     <!-- Permissions for accessing location and internet -->
@@ -14,16 +15,11 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name">
-
-        <!-- Google Maps API Key -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/maps_api_key" />
-
-
-
-
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HackstreetBoys"
+        tools:targetApi="31">
         <activity
             android:name=".Sign_inScreen"
             android:exported="true"/>
@@ -62,7 +58,10 @@
 
         <!-- Sign Up Screen -->
         <activity
-            android:name=".sign_up"
+            android:name=".Sign_up"
+            android:exported="true" />
+        <activity
+            android:name=".forget_passwordScreen"
             android:exported="true" />
 
 

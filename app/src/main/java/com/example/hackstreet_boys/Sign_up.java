@@ -3,6 +3,7 @@ package com.example.hackstreet_boys;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,11 +17,11 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 
-public class sign_up extends AppCompatActivity {
+public class Sign_up extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText emailField, passwordField;
-    private Button signUpButton, backButton;
+    private Button signUpButton, backButton, signInButton;
     private ProgressDialog progressDialog;
 
     @Override
@@ -32,16 +33,21 @@ public class sign_up extends AppCompatActivity {
 
         emailField = findViewById(R.id.inputText);
         passwordField = findViewById(R.id.inputText2);
-        signUpButton = findViewById(R.id.btnContinue);
+        signInButton = findViewById(R.id.btnContinue);
         backButton = findViewById(R.id.btnBack);
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Creating account...");
-        progressDialog.setCancelable(false);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Sign_up.this, Sign_inScreen.class);
+                startActivity(intent);
+                finish(); // Optional: closes the current activity
+            }
+        });
 
-        signUpButton.setOnClickListener(view -> registerUser());
-
-        backButton.setOnClickListener(view -> finish()); // Goes back to the previous activity
+        backButton.setOnClickListener(view -> {
+            finish(); // Goes back to the previous activity
+        });
     }
 
     private void registerUser() {
@@ -53,26 +59,17 @@ public class sign_up extends AppCompatActivity {
             return;
         }
 
-        if (password.length() < 6) {
-            Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        progressDialog.show();
-
-        mAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     progressDialog.dismiss();
 
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
-                        Toast.makeText(sign_up.this, "Account created! Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Sign_up.this, "Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
 
-                        // Navigate to another activity (e.g., main screen)
-                        startActivity(new Intent(sign_up.this, Sign_inScreen.class));
-                        finish(); // Close sign-up screen
+
                     } else {
-                        handleSignUpError(task.getException());
+                        Toast.makeText(Sign_up.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
