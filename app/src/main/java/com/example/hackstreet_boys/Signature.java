@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class Signature extends AppCompatActivity {
     private DrawingView drawingView;
@@ -25,10 +28,29 @@ public class Signature extends AppCompatActivity {
 
         Button ClearButton = findViewById(R.id.clear);
 
+        Button SaveButton = findViewById(R.id.save);
+
         ClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 drawingView.clearDrawing();
+            }
+        });
+
+        SaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                byte[] data = drawingView.getByteArray();
+                FirebaseStorage storage = FirebaseStorage.getInstance();
+                StorageReference storageRef = storage.getReference();
+                StorageReference imageRef = storageRef.child("TEST/mySignature.png");
+
+                UploadTask uploadTask = imageRef.putBytes(data);
+                uploadTask.addOnFailureListener(exception -> {
+                    // Handle unsuccessful uploads
+                }).addOnSuccessListener(taskSnapshot -> {
+                    // Handle successful uploads
+                });
             }
         });
     }

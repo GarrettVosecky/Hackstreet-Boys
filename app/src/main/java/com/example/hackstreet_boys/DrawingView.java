@@ -10,6 +10,8 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayOutputStream;
+
 public class DrawingView extends View {
 
     private Path drawPath;
@@ -81,5 +83,11 @@ public class DrawingView extends View {
         drawPath.reset();
         drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR); // Clear the canvas
         invalidate();
+    }
+
+    public byte[] getByteArray() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        canvasBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
     }
 }
