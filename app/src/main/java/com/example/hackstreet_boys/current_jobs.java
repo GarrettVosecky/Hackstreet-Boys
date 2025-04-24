@@ -25,8 +25,13 @@ public class current_jobs extends AppCompatActivity {
         int dropdownId = getResources().getIdentifier("dropdown" + jobNumber, "id", getPackageName());
         int detailId = getResources().getIdentifier("jobDetails" + jobNumber, "id", getPackageName());
 
+        //int completeId =  getResources().getIdentifier("complete" + jobNumber, "id", getPackageName());
+
         Button dropdown = findViewById(dropdownId);
         LinearLayout details = findViewById(detailId);
+
+        //Button to mark a job has completed
+        Button complete = findViewById(R.id.complete1);
 
         dropdown.setOnClickListener(v -> {
             if (details.getVisibility() == View.GONE) {
@@ -34,6 +39,16 @@ public class current_jobs extends AppCompatActivity {
             } else {
                 details.setVisibility(View.GONE);
             }
+        });
+
+        //Completed button click function
+        complete.setOnClickListener(v -> {
+            findViewById(R.id.Description1).setVisibility(View.GONE);
+            findViewById(R.id.dropdown1).setVisibility(View.GONE);
+            findViewById(R.id.jobDetails1).setVisibility(View.GONE);
+            findViewById(R.id.complete1).setVisibility(View.GONE);
+            //Intent intent = new Intent(current_jobs.this, CompletedJobsPage.class);
+
         });
     }
 }

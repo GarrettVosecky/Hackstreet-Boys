@@ -7,9 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyD123456YourRealKeyHere" />
 
 
     <application
@@ -20,18 +17,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HackstreetBoys"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCUvFpTBqO3EaMrLjbpy_CDZC01NJJ8GuA" />
+
+
         <activity
             android:name=".Sign_inScreen"
-            android:exported="true"/>
+            android:exported="true">
+
+            <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
+
+        </activity>
+
         <activity
             android:name=".MapsActivity"
             android:exported="true"
             android:label="@string/app_name">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!-- Completed Jobs Page (Explicit Launch & Deep Linking Support) -->
@@ -53,8 +60,15 @@
 
         <!-- Current Jobs Activity (Internal Only) -->
         <activity
-            android:name=".CurrentJobs"
-            android:exported="false" />
+            android:name=".current_jobs"
+            android:exported="true">
+            <!--Temporary Start screen for testing-->
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>
 
         <!-- Sign Up Screen -->
         <activity
@@ -63,6 +77,7 @@
         <activity
             android:name=".forget_passwordScreen"
             android:exported="true" />
+
 
 
 

@@ -22,7 +22,7 @@ public class Sign_up extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText emailField, passwordField;
     private Button signUpButton, backButton, signInButton;
-    private ProgressDialog progressDialog;
+    //private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class Sign_up extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                registerUser();
                 Intent intent = new Intent(Sign_up.this, Sign_inScreen.class);
                 startActivity(intent);
                 finish(); // Optional: closes the current activity
@@ -59,9 +60,9 @@ public class Sign_up extends AppCompatActivity {
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
-                    progressDialog.dismiss();
+                   // progressDialog.dismiss();
 
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
