@@ -1,5 +1,6 @@
 package com.example.hackstreet_boys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,16 @@ public class current_jobs extends AppCompatActivity {
         setupJob(3);
         setupJob(4);
         setupJob(5);
+
+        Button completedJobBtn = findViewById(R.id.CompletedJobs);
+
+        completedJobBtn.setOnClickListener(v ->{
+
+            Intent intent = new Intent(current_jobs.this, CompletedJobsPage.class);
+            startActivity(intent);
+            finish();
+
+        });
     }
 
     private void setupJob(int jobNumber) {
@@ -48,7 +59,8 @@ public class current_jobs extends AppCompatActivity {
             findViewById(R.id.jobDetails1).setVisibility(View.GONE);
             findViewById(R.id.complete1).setVisibility(View.GONE);
             //Intent intent = new Intent(current_jobs.this, CompletedJobsPage.class);
-
+            //intent.putExtra("textToMove", myTextView.getText().toString()); // or any relevant data
+            //startActivity(intent);
         });
     }
 }

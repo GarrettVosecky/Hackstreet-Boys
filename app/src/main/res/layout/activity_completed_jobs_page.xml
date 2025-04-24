@@ -45,10 +45,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:gravity="center_vertical"
+                android:paddingLeft="12dp"
                 android:text="Job 1 Details"
-                android:textSize="20sp"
                 android:textColor="#FFFFFF"
-                android:paddingLeft="12dp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/dropdown1"
@@ -234,7 +234,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/CurrentJobBtn"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"

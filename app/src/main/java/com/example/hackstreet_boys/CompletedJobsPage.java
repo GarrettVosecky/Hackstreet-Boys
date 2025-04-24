@@ -28,13 +28,11 @@ public class CompletedJobsPage extends AppCompatActivity {
         ;
 
         // Fix: Button initialization and click listener
-        Button btn = findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), CurrentJobs.class);
-                startActivity(myIntent);
-            }
+        Button btn = findViewById(R.id.CurrentJobBtn);
+        btn.setOnClickListener(v -> {
+            Intent intent = new Intent(CompletedJobsPage.this, current_jobs.class);
+            startActivity(intent);
+            finish();
         });
     }
 }
