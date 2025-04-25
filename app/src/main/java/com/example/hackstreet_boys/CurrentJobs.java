@@ -29,6 +29,5 @@ public class CurrentJobs extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-
     }
 }
