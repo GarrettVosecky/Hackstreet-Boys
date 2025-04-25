@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -49,7 +52,9 @@ public class Signature extends AppCompatActivity {
                 uploadTask.addOnFailureListener(exception -> {
                     // Handle unsuccessful uploads
                 }).addOnSuccessListener(taskSnapshot -> {
-                    // Handle successful uploads
+                    Toast.makeText(drawingView.getContext(), "Signature saved!", Toast.LENGTH_SHORT).show();
+                    FirebaseFirestore  db = FirebaseFirestore.getInstance();
+                    db.collection("TEST").document("TEST").update("url", "TEST/mySignature.png");
                 });
             }
         });
