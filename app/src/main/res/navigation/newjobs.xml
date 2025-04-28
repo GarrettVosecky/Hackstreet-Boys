@@ -16,12 +16,12 @@
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" >
         <action
-            android:id="@+id/action_addFragment_to_completedJobsPage"
-            app:destination="@id/completedJobsPage" />
+            android:id="@+id/action_addFragment_to_currentJobs"
+            app:destination="@id/currentJobs" />
     </fragment>
     <activity
-        android:id="@+id/completedJobsPage"
-        android:name="com.example.hackstreet_boys.CompletedJobsPage"
-        android:label="activity_completed_jobs_page"
-        tools:layout="@layout/activity_completed_jobs_page" />
+        android:id="@+id/currentJobs"
+        android:name="com.example.hackstreet_boys.CurrentJobs"
+        android:label="activity_current_jobs"
+        tools:layout="@layout/current_jobs" />
 </navigation>

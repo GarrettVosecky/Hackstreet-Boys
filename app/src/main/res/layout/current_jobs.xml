@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".current_jobs">
-
+    tools:context=".CurrentJobs"
+    android:id="@+id/main">
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -265,6 +265,52 @@
                     android:textColor="#000000" />
             </LinearLayout>
 
+            <Button
+                android:id="@+id/completedjobs"
+                android:layout_width="213dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="99dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="99dp"
+                android:layout_marginBottom="8dp"
+                android:text="completed jobs"
+                android:textAlignment="gravity"
+                android:textSize="23sp"
+                app:cornerRadius="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.831" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="177dp"
+                android:layout_marginTop="709dp"
+                android:layout_marginEnd="178dp"
+                android:layout_marginBottom="58dp"
+                android:clickable="true"
+                app:layout_constraintBottom_toTopOf="@+id/completedjobs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:contentDescription="Add new job" /> <!-- Added content description -->
+
+
+
+            <FrameLayout
+                android:id="@+id/fragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
