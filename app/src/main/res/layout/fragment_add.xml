@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
@@ -10,19 +11,73 @@
         android:id="@+id/editTextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="6dp"
         android:ems="10"
         android:inputType="text"
         android:text="Job Info"
         android:textSize="34sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.019" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Save"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="753dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.965"
         tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="410dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="1dp"
+        android:ems="10"
+        android:hint="Applicator ID"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.208" />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="410dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="1dp"
+        android:ems="10"
+        android:hint="Location"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.308" />
+
+    <EditText
+        android:id="@+id/editTextText5"
+        android:layout_width="409dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="2dp"
+        android:ems="10"
+        android:hint="Addtional info"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.415" />
 </androidx.constraintlayout.widget.ConstraintLayout>
