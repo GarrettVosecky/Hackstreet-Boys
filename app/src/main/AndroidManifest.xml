@@ -1,72 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.hackstreet_boys">
 
-    <!-- Permissions for accessing location and internet -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyD123456YourRealKeyHere" />
-
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
 
-        <!-- Google Maps API Key -->
+        <!-- API Key for Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/maps_api_key" />
+            android:value= "AIzaSyCUvFpTBqO3EaMrLjbpy_CDZC01NJJ8GuA"/>
 
-
-
-
-        <activity
-            android:name=".Sign_inScreen"
-            android:exported="true"/>
-        <activity
-            android:name=".MapsActivity"
-            android:exported="true"
-            android:label="@string/app_name">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!-- Completed Jobs Page (Explicit Launch & Deep Linking Support) -->
-        <activity
-            android:name=".CompletedJobsPage"
+        <!-- MapsActivity -->
+        <activity android:name=".MapsActivity"
             android:exported="true">
-            <intent-filter>
-                <!-- Allows launching via an explicit intent -->
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
 
-                <!-- Enables deep linking via a web URL -->
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https"
-                    android:host="yourapp.com"
-                    android:path="/completed"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <!-- Current Jobs Activity (Internal Only) -->
-        <activity
-            android:name=".CurrentJobs"
-            android:exported="false" />
-
-        <!-- Sign Up Screen -->
-        <activity
-            android:name=".sign_up"
-            android:exported="true" />
-
-
-
 
     </application>
 
