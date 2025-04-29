@@ -73,6 +73,9 @@ public class Sign_inScreen extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = auth.getCurrentUser();
                         Toast.makeText(this, "Login successful: " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Sign_inScreen.this, CompletedJobsPage.class);
+                        startActivity(intent);
+                        finish(); // Optional: closes the current activity
                         // You can now navigate to another activity or update UI
                     } else {
                         Toast.makeText(this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
