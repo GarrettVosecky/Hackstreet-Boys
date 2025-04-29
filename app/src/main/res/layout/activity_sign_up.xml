@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sign_up">
+    tools:context=".Sign_inScreen"
+    android:background="@drawable/background">
 
 
     <EditText
@@ -18,7 +19,6 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        android:text="email"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,6 @@
         android:hint="Password"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="password"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,21 +99,21 @@
         android:layout_marginTop="84dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="151dp"
+        android:backgroundTint="@color/blue"
         android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputText2" />
+        app:layout_constraintTop_toBottomOf="@+id/inputText2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="318dp"
-        android:layout_marginBottom="205dp"
         android:text="Go Back"
+        android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toTopOf="@+id/inputText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.07"
