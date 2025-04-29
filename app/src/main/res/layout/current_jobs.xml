@@ -40,6 +40,7 @@
 
             <!-- Job 1 -->
             <LinearLayout
+                android:id="@+id/Job1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#0868a0"
@@ -52,14 +53,14 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@android:color/white"
-                    android:text="x"
+                    android:text="Complete"
                     android:textColor="#0868a0"
                     android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/Description1"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="70dp"
                     android:layout_weight="3"
                     android:gravity="center_vertical"
                     android:paddingLeft="12dp"
@@ -80,7 +81,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/jobDetails1"
+                android:id="@+id/jobDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

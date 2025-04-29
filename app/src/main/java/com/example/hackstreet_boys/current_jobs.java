@@ -1,10 +1,12 @@
 package com.example.hackstreet_boys;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,16 +35,21 @@ public class current_jobs extends AppCompatActivity {
     }
 
     private void setupJob(int jobNumber) {
+        //int dropdownId = getResources().getIdentifier("dropdown" + jobNumber, "id", getPackageName());
+        //int detailId = getResources().getIdentifier("jobDetails" + jobNumber, "id", getPackageName());
+
         int dropdownId = getResources().getIdentifier("dropdown" + jobNumber, "id", getPackageName());
         int detailId = getResources().getIdentifier("jobDetails" + jobNumber, "id", getPackageName());
-
-        //int completeId =  getResources().getIdentifier("complete" + jobNumber, "id", getPackageName());
+        int completeId = getResources().getIdentifier("complete" + jobNumber, "id", getPackageName());
+        int layoutId = getResources().getIdentifier("Job" + jobNumber, "id", getPackageName());
+        int descId = getResources().getIdentifier("Description" + jobNumber, "id", getPackageName());
 
         Button dropdown = findViewById(dropdownId);
         LinearLayout details = findViewById(detailId);
+        Button complete = findViewById(completeId);
+        View layout = findViewById(layoutId);
+        TextView description = findViewById(descId);
 
-        //Button to mark a job has completed
-        Button complete = findViewById(R.id.complete1);
 
         dropdown.setOnClickListener(v -> {
             if (details.getVisibility() == View.GONE) {
@@ -54,13 +61,19 @@ public class current_jobs extends AppCompatActivity {
 
         //Completed button click function
         complete.setOnClickListener(v -> {
-            findViewById(R.id.Description1).setVisibility(View.GONE);
-            findViewById(R.id.dropdown1).setVisibility(View.GONE);
-            findViewById(R.id.jobDetails1).setVisibility(View.GONE);
-            findViewById(R.id.complete1).setVisibility(View.GONE);
-            //Intent intent = new Intent(current_jobs.this, CompletedJobsPage.class);
-            //intent.putExtra("textToMove", myTextView.getText().toString()); // or any relevant data
-            //startActivity(intent);
+
+            layout.setVisibility(View.GONE);
+
+            SharedPreferences prefs = getSharedPreferences("CompletedJobs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("job" + jobNumber + "_completed", true);
+            editor.apply();
+
         });
+
+
     }
+
+
+
 }
