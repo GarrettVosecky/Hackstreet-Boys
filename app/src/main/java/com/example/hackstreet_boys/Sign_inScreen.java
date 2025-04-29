@@ -34,7 +34,7 @@ public class Sign_inScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to start SecondActivity
-                Intent intent = new Intent(Sign_inScreen.this, Sign_UpScreen.class);
+                Intent intent = new Intent(Sign_inScreen.this, Sign_inScreen.class);
                 startActivity(intent);
             }
         });

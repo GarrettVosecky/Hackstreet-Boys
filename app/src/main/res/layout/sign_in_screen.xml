@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sign_inScreen">
+    tools:context=".Sign_inScreen"
+    android:background="@drawable/background">
 
 
 
@@ -104,6 +105,7 @@
             android:layout_marginTop="58dp"
             android:layout_marginEnd="27dp"
             android:layout_marginBottom="81dp"
+            android:backgroundTint="@color/blue"
             android:text="Sign Up"
             app:layout_constraintBottom_toTopOf="@+id/extra_textbox2"
             app:layout_constraintEnd_toEndOf="parent"
