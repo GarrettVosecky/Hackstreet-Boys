@@ -16,6 +16,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Sign_up extends AppCompatActivity {
 
@@ -67,6 +71,11 @@ public class Sign_up extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(Sign_up.this, "Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                        FirebaseFirestore  db = FirebaseFirestore.getInstance();
+                        Map<String, Object> data = new HashMap<>();
+                        data.put("VerificationLevel", 1);
+                        
+                        db.collection("Users").document(user.getUid()).set(data);
 
 
                     } else {
