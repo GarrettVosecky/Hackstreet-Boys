@@ -40,6 +40,10 @@ android {
 
 dependencies {
     implementation platform('com.google.firebase:firebase-bom:33.10.0')
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+
+    implementation 'com.google.firebase:firebase-core:21.0.0'  // Firebase core
+    implementation 'androidx.fragment:fragment:1.5.5'  // If Fragment class is not being resolved
 
         implementation("com.google.android.gms:play-services-maps:19.0.0")
     implementation libs.appcompat
@@ -53,6 +57,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     implementation libs.navigation.fragment.ktx
     implementation libs.navigation.ui.ktx
+    implementation libs.firebase.database
     annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
 
     testImplementation libs.junit

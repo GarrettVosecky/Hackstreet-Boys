@@ -47,7 +47,7 @@ public class CurrentJobs extends AppCompatActivity {
         });
 
         // Setup FloatingActionButton to open AddFragment
-        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
+        FloatingActionButton fab = findViewById(R.id.floatingActionButton3);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
