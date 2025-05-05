@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import com.example.hackstreet_boys.AddFragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,37 +29,28 @@ public class CurrentJobs extends AppCompatActivity {
             return insets;
         });
 
-        // Setup dropdown toggles for jobs
-        setupJob(1);
-        setupJob(2);
-        setupJob(3);
-        setupJob(4);
-        setupJob(5);
+        // Set up dropdown toggles for jobs and make sure all jobs are visible by default
+        for (int i = 1; i <= 5; i++) {
+            setupJob(i);
+        }
 
-        // Setup button to CompletedJobsPage
+        // Button to navigate to completed jobs page
         Button btnCompletedJobs = findViewById(R.id.completedjobs);
-        btnCompletedJobs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), CompletedJobsPage.class);
-                startActivity(myIntent);
-            }
+        btnCompletedJobs.setOnClickListener(view -> {
+            Intent intent = new Intent(CurrentJobs.this, CompletedJobsPage.class);
+            startActivity(intent);
         });
 
-        // Setup FloatingActionButton to open AddFragment
+        // FloatingActionButton to open AddFragment
         FloatingActionButton fab = findViewById(R.id.floatingActionButton3);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show the AddFragment
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragmentContainer, new AddFragment())
-                        .addToBackStack(null)
-                        .commit();
+        fab.setOnClickListener(v -> {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentContainer, new AddFragment())
+                    .addToBackStack(null)
+                    .commit();
 
-                // Make the FrameLayout visible
-                findViewById(R.id.fragmentContainer).setVisibility(View.VISIBLE);
-            }
+            // Make fragment container visible
+            findViewById(R.id.fragmentContainer).setVisibility(View.VISIBLE);
         });
     }
 
@@ -71,6 +61,12 @@ public class CurrentJobs extends AppCompatActivity {
         Button dropdown = findViewById(dropdownId);
         LinearLayout details = findViewById(detailId);
 
+        // Make the job details visible by default
+        if (details != null) {
+            details.setVisibility(View.VISIBLE); // Ensure details are visible by default
+        }
+
+        // Set up the dropdown to toggle job details visibility
         if (dropdown != null && details != null) {
             dropdown.setOnClickListener(v -> {
                 if (details.getVisibility() == View.GONE) {
