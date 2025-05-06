@@ -45,16 +45,10 @@
         <activity
             android:name=".CompletedJobsPage"
             android:exported="true">
+            <!--Temporary Start screen for testing-->
             <intent-filter>
-                <!-- Allows launching via an explicit intent -->
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <!-- Enables deep linking via a web URL -->
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https"
-                    android:host="yourapp.com"
-                    android:path="/completed"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -62,11 +56,6 @@
         <activity
             android:name=".current_jobs"
             android:exported="true">
-            <!--Temporary Start screen for testing-->
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
 
         </activity>
 

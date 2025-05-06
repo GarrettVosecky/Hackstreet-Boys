@@ -19,22 +19,5 @@ public class CompletedJobsPage extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_completed_jobs_page);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        })
-
-        ;
-
-        // Fix: Button initialization and click listener
-        Button btn = findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(getApplicationContext(), CurrentJobs.class);
-                startActivity(myIntent);
-            }
-        });
     }
 }
