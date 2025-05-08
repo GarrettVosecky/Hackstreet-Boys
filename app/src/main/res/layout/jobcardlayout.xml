@@ -22,29 +22,48 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/TitleDisplay"
                 android:layout_width="match_parent"
-                android:layout_height="70dp">
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="35dp"
+                    android:text="114 N 1st St, Eldridge, IA 52748"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dropDown"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Title" />
 
                 <TextView
                     android:id="@+id/Title"
-                    android:layout_width="256dp"
-                    android:layout_height="49dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="Job Name 1"
-                    android:textSize="36dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="Package Delivery"
+                    android:textAlignment="textStart"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/Location"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.516" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
                     android:id="@+id/dropDown"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="3dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="3dp"
                     android:background="#4CC32D"
                     android:rotation="90"
+                    android:scaleType="center"
+                    android:scaleX="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -57,65 +76,111 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/Description"
                 android:layout_width="match_parent"
-                android:layout_height="144dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:visibility="gone">
 
-                <TextView
-                    android:id="@+id/Location"
-                    android:layout_width="310dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="20dp"
-                    android:text="Location: SOMEWHERE"
-                    android:textSize="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.050000012" />
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="349dp"
-                    android:layout_height="71dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:text="BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH "
-                    android:textSize="14dp"
-                    app:layout_constraintBottom_toTopOf="@+id/Status"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Location" />
-
-                <TextView
-                    android:id="@+id/Status"
-                    android:layout_width="312dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:text="Not being done"
-                    android:textSize="14dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/description" />
-
                 <ImageButton
                     android:id="@+id/actionButton"
-                    android:layout_width="25dp"
-                    android:layout_height="24dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:alpha="1"
                     android:background="#4CC32D"
                     android:backgroundTint="#7CFFFFFF"
-                    android:rotation="90"
+                    android:rotation="0"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:tint="#1A1A1A"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/mapButton"
+                    app:layout_constraintTop_toBottomOf="@+id/seperator"
+                    app:srcCompat="@android:drawable/ic_menu_delete" />
+
+                <ImageButton
+                    android:id="@+id/mapButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:alpha="1"
+                    android:background="#4CC32D"
+                    android:backgroundTint="#00592424"
+                    android:rotation="0"
+                    android:scaleX="1.2"
+                    android:scaleY="1.2"
+                    android:tint="#2E2E2E"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/actionButton"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/Status"
-                    app:layout_constraintTop_toBottomOf="@+id/description"
-                    app:srcCompat="@android:drawable/ic_delete" />
+                    app:layout_constraintTop_toBottomOf="@+id/seperator"
+                    app:layout_constraintVertical_bias="0.45"
+                    app:srcCompat="@android:drawable/ic_dialog_map" />
+
+                <View
+                    android:id="@+id/seperator2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="4dp"
+                    android:background="#87646464"
+                    app:layout_constraintBottom_toTopOf="@+id/description"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <View
+                    android:id="@+id/seperator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="4dp"
+                    android:background="#87646464"
+                    app:layout_constraintBottom_toTopOf="@+id/Applicant"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/description" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Package Delivery"
+                    android:textAlignment="viewStart"
+                    android:textDirection="inherit"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/seperator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Status"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:text="Not being done"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/mapButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Applicant" />
+
+                <TextView
+                    android:id="@+id/Applicant"
+                    android:layout_width="216dp"
+                    android:layout_height="wrap_content"
+                    android:text="Started by Him"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@+id/Status"
+                    app:layout_constraintEnd_toStartOf="@+id/mapButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/seperator" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 

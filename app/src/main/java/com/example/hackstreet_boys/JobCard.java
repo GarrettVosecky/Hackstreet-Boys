@@ -28,7 +28,7 @@ public class JobCard {
 
     public String getDescription()
     {
-        return Status;
+        return Description;
     }
 
     public String getStatus()

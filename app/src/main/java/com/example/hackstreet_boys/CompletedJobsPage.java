@@ -28,27 +28,27 @@ public class CompletedJobsPage extends AppCompatActivity {
 
         List<JobCard> jobList = new ArrayList<>();
 
-        jobList.add(new JobCard("Job 3", "AYO", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 54", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
-        jobList.add(new JobCard("Job 2", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 3", "AYO", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 54", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
-        jobList.add(new JobCard("Job 2", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 3", "AYO", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 54", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
-        jobList.add(new JobCard("Job 2", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 3", "AYO", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 54", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
-        jobList.add(new JobCard("Job 2", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 3", "AYO", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 54", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
-        jobList.add(new JobCard("Job 2", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 3", "AYO", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 54", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
-        jobList.add(new JobCard("Job 2", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 3", "AYO", "YO YO YO YO YO YO", "dude", 2));
-        jobList.add(new JobCard("Job 54", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
-        jobList.add(new JobCard("Job 2", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 1", "AYO", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 2", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
+        jobList.add(new JobCard("Job 3", "Arush's place", "Vandalism", "Vandalism", 2));
+        jobList.add(new JobCard("Job 4", "AYO", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 5", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
+        jobList.add(new JobCard("Job 6", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 7", "AYO", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 8", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
+        jobList.add(new JobCard("Job 9", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 10", "AYO", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 11", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
+        jobList.add(new JobCard("Job 12", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 13", "AYO", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 14", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
+        jobList.add(new JobCard("Job 15", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 16", "AYO", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 17", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
+        jobList.add(new JobCard("Job 18", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 19", "AYO", "YO YO YO YO YO YO", "dude", 2));
+        jobList.add(new JobCard("Job 20", "Anywhere", "BLAH BLAH BLAH BLAH", "bro", 4));
+        jobList.add(new JobCard("Job 21", "Nowhere", "YO YO YO YO YO YO", "dude", 2));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
