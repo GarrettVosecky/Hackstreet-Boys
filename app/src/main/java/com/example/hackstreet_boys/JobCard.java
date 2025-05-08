@@ -15,4 +15,29 @@ public class JobCard {
         this.Status = Status;
         this.StatusId = StatusId;
     }
+
+    public String getJobTitle()
+    {
+        return JobTitle;
+    }
+
+    public String getLocation()
+    {
+        return Location;
+    }
+
+    public String getDescription()
+    {
+        return Status;
+    }
+
+    public String getStatus()
+    {
+        return Status;
+    }
+
+    public int getStatusId()
+    {
+        return StatusId;
+    }
 }

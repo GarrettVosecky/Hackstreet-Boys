@@ -52,9 +52,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:gravity="center|top"
-            android:orientation="vertical">
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            android:overScrollMode="never">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/jobRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
