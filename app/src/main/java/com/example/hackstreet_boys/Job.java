@@ -1,16 +1,16 @@
 package com.example.hackstreet_boys;
 
-public class jobs {
-    public String jobId;
-    public String jobInfo;
-    public String applicatorId;
-    public String location;
+public class Job {
+    private String jobId;
+    private String jobInfo;
+    private String applicatorId;
+    private String location;
 
-    // Required empty constructor
-    public jobs() {
+    // Required empty constructor for Firebase
+    public Job() {
     }
 
-    public jobs(String jobId, String jobInfo, String applicatorId, String location) {
+    public Job(String jobId, String jobInfo, String applicatorId, String location) {
         this.jobId = jobId;
         this.jobInfo = jobInfo;
         this.applicatorId = applicatorId;

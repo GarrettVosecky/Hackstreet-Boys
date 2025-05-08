@@ -59,8 +59,14 @@ public class AddFragment extends Fragment {
 
         if (jobId != null) {
             jobsRef.child(jobId).setValue(job)
-                    .addOnSuccessListener(unused ->
-                            Toast.makeText(getContext(), "Job saved successfully", Toast.LENGTH_SHORT).show())
+                    .addOnSuccessListener(unused -> {
+                        Toast.makeText(getContext(), "Job saved successfully", Toast.LENGTH_SHORT).show();
+
+                        // Remove this fragment (AddFragment) from the container
+                        requireActivity().getSupportFragmentManager().beginTransaction()
+                                .remove(AddFragment.this)
+                                .commit();
+                    })
                     .addOnFailureListener(e ->
                             Toast.makeText(getContext(), "Failed to save job: " + e.getMessage(), Toast.LENGTH_SHORT).show());
         }
