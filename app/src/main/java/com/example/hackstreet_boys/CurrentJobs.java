@@ -1,9 +1,11 @@
 package com.example.hackstreet_boys;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.content.Intent;
 
 import androidx.activity.EdgeToEdge;
@@ -13,8 +15,16 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class CurrentJobs extends AppCompatActivity {
+
+    private LinearLayout jobsContainer;
+    private DatabaseReference jobsRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,26 +32,26 @@ public class CurrentJobs extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.current_jobs);
 
-        // Handle window insets for better layout
+        // Set padding for system bars
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Set up dropdown toggles for jobs and make sure all jobs are visible by default
-        for (int i = 1; i <= 5; i++) {
-            setupJob(i);
-        }
+        jobsContainer = findViewById(R.id.jobsContainer);
+        jobsRef = FirebaseDatabase.getInstance().getReference("jobs");
 
-        // Button to navigate to completed jobs page
+        loadJobsFromFirebase();
+
+        // Navigate to completed jobs
         Button btnCompletedJobs = findViewById(R.id.completedjobs);
         btnCompletedJobs.setOnClickListener(view -> {
             Intent intent = new Intent(CurrentJobs.this, CompletedJobsPage.class);
             startActivity(intent);
         });
 
-        // FloatingActionButton to open AddFragment
+        // Show AddFragment to add a new job
         FloatingActionButton fab = findViewById(R.id.floatingActionButton3);
         fab.setOnClickListener(v -> {
             getSupportFragmentManager().beginTransaction()
@@ -49,32 +59,48 @@ public class CurrentJobs extends AppCompatActivity {
                     .addToBackStack(null)
                     .commit();
 
-            // Make fragment container visible
             findViewById(R.id.fragmentContainer).setVisibility(View.VISIBLE);
         });
     }
 
-    private void setupJob(int jobNumber) {
-        int dropdownId = getResources().getIdentifier("dropdown" + jobNumber, "id", getPackageName());
-        int detailId = getResources().getIdentifier("jobDetails" + jobNumber, "id", getPackageName());
+    private void loadJobsFromFirebase() {
+        jobsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                jobsContainer.removeAllViews();
 
-        Button dropdown = findViewById(dropdownId);
-        LinearLayout details = findViewById(detailId);
-
-        // Make the job details visible by default
-        if (details != null) {
-            details.setVisibility(View.VISIBLE); // Ensure details are visible by default
-        }
-
-        // Set up the dropdown to toggle job details visibility
-        if (dropdown != null && details != null) {
-            dropdown.setOnClickListener(v -> {
-                if (details.getVisibility() == View.GONE) {
-                    details.setVisibility(View.VISIBLE);
-                } else {
-                    details.setVisibility(View.GONE);
+                for (DataSnapshot jobSnapshot : snapshot.getChildren()) {
+                    Job job = jobSnapshot.getValue(Job.class);
+                    if (job != null) {
+                        View jobCard = createJobCard(job);
+                        jobsContainer.addView(jobCard);
+                    }
                 }
-            });
-        }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Handle error
+                // Optionally show a Toast message here
+            }
+        });
+    }
+
+    private View createJobCard(Job job) {
+        // Inflate the job item layout
+        View jobCardView = LayoutInflater.from(CurrentJobs.this)
+                .inflate(R.layout.job_item, jobsContainer, false);
+
+        // Find the TextViews in the inflated layout
+        TextView jobInfoText = jobCardView.findViewById(R.id.jobInfoText);
+        TextView applicatorIdText = jobCardView.findViewById(R.id.applicatorIdText);
+        TextView locationText = jobCardView.findViewById(R.id.locationText);
+
+        // Set the job data
+        jobInfoText.setText("Job Info: " + job.getJobInfo());
+        applicatorIdText.setText("Applicator ID: " + job.getApplicatorId());
+        locationText.setText("Location: " + job.getLocation());
+
+        return jobCardView;
     }
 }
