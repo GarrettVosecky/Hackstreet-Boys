@@ -1,19 +1,18 @@
 package com.example.hackstreet_boys;
 
 public class JobCard {
-    private String JobTitle;
-    private String Location;
-    private String Description;
-    private String Status;
-    private int StatusId;
+    private String JobTitle, Location, Description, Owner, Applicant;
 
-    public JobCard(String JobTitle, String Location, String Description, String Status, int StatusId)
+    private boolean Completed;
+
+    public JobCard(String JobTitle, String Location, String Description, String Owner, boolean Completed, String Applicant)
     {
         this.JobTitle = JobTitle;
         this.Location = Location;
         this.Description = Description;
-        this.Status = Status;
-        this.StatusId = StatusId;
+        this.Owner = Owner;
+        this.Applicant = Applicant;
+        this.Completed = Completed;
     }
 
     public String getJobTitle()
@@ -31,13 +30,18 @@ public class JobCard {
         return Description;
     }
 
-    public String getStatus()
+    public String getOwner()
     {
-        return Status;
+        return Owner;
     }
 
-    public int getStatusId()
+    public String getApplicant()
     {
-        return StatusId;
+        return Applicant;
+    }
+
+    public boolean isCompleted()
+    {
+        return Completed;
     }
 }

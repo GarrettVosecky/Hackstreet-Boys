@@ -51,6 +51,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
 
     implementation 'com.github.bumptech.glide:glide:4.16.0'
+    implementation libs.firebase.firestore
     annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
 
     testImplementation libs.junit
@@ -58,5 +59,6 @@ dependencies {
     androidTestImplementation libs.espresso.core
  //   classpath 'com.google.gms:google-services:4.4.2'  // Update to latest version
     implementation 'com.google.firebase:firebase-auth' // Firebase Auth dependency
+    implementation 'com.google.firebase:firebase-firestore:24.9.0'
 
 }

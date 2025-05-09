@@ -33,6 +33,19 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
         holder.titleView.setText(jobCard.getJobTitle());
         holder.descriptionView.setText(jobCard.getDescription());
         holder.locationView.setText(jobCard.getLocation());
+        holder.ownerView.setText("Started by " + jobCard.getOwner());
+        if (jobCard.isCompleted())
+        {
+            holder.statusView.setText("Finished by " + jobCard.getApplicant());
+        } else {
+            String applicant = jobCard.getApplicant();
+            if (applicant.isEmpty())
+            {
+                holder.statusView.setText("Not yet started");
+            } else {
+                holder.statusView.setText("Being worked on by " + jobCard.getApplicant());
+            }
+        }
     }
 
     @Override
@@ -42,7 +55,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
 
     static class JobViewHolder extends RecyclerView.ViewHolder {
 
-        TextView titleView, locationView, descriptionView, statusView;
+        TextView titleView, locationView, descriptionView, statusView, ownerView;
         ImageButton actionButton, dropButton;
 
         ConstraintLayout descriptionLayout;
@@ -53,6 +66,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
             locationView = itemView.findViewById(R.id.Location);
             descriptionView = itemView.findViewById(R.id.description);
             statusView = itemView.findViewById(R.id.Status);
+            ownerView = itemView.findViewById(R.id.Owner);
             dropButton = itemView.findViewById(R.id.dropDown);
             actionButton = itemView.findViewById(R.id.actionButton);
             descriptionLayout = itemView.findViewById(R.id.Description);

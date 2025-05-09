@@ -28,7 +28,7 @@
                     android:id="@+id/Location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginEnd="35dp"
                     android:text="114 N 1st St, Eldridge, IA 52748"
                     android:textSize="16sp"
@@ -42,13 +42,14 @@
                     android:id="@+id/Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="35dp"
                     android:text="Package Delivery"
                     android:textAlignment="textStart"
-                    android:textSize="30dp"
+                    android:textSize="24dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/Location"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dropDown"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +59,6 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="3dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginBottom="3dp"
                     android:background="#4CC32D"
                     android:rotation="90"
@@ -66,9 +66,10 @@
                     android:scaleX="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/Title"
+                    app:layout_constraintHorizontal_bias="0.951"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
                     app:srcCompat="@android:drawable/ic_media_play" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -137,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="4dp"
                     android:background="#87646464"
-                    app:layout_constraintBottom_toTopOf="@+id/Applicant"
+                    app:layout_constraintBottom_toTopOf="@+id/Owner"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/description" />
@@ -168,10 +169,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/mapButton"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Applicant" />
+                    app:layout_constraintTop_toBottomOf="@+id/Owner" />
 
                 <TextView
-                    android:id="@+id/Applicant"
+                    android:id="@+id/Owner"
                     android:layout_width="216dp"
                     android:layout_height="wrap_content"
                     android:text="Started by Him"
