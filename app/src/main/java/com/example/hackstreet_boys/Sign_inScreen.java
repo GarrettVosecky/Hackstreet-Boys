@@ -2,107 +2,43 @@ package com.example.hackstreet_boys;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class Sign_inScreen extends AppCompatActivity {
-    private FirebaseAuth auth;
-    private EditText usernameEditText, passwordEditText;
-    private Button loginButton, registerButton, forgotPassButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_in_screen);  // Your sign-in XML layout
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.sign_in_screen);
 
-        // Initialize FirebaseAuth instance
-        auth = FirebaseAuth.getInstance();
+        // Get references to UI elements
+        Button button = findViewById(R.id.forgotPassBtn);
+        Button button2 = findViewById(R.id.signUpBtn);
 
-        // Link UI elements
-        usernameEditText = findViewById(R.id.usernameEditText);
-        passwordEditText = findViewById(R.id.passwordEditText);
-
-        loginButton = findViewById(R.id.loginButton);
-        registerButton = findViewById(R.id.registerButton);
-        forgotPassButton = findViewById(R.id.forgotPassButton);
-
-        // Set button click listeners
-        loginButton.setOnClickListener(view -> handleLogin());
-
-        registerButton.setOnClickListener(view -> {
-            Intent intent = new Intent(Sign_inScreen.this, Sign_up.class);
-            startActivity(intent);
-            finish(); // Optional: closes the current activity
+        // Set button click event
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start SecondActivity
+                Intent intent = new Intent(Sign_inScreen.this, forget_passwordScreen.class);
+                startActivity(intent);
+            }
         });
 
-        forgotPassButton.setOnClickListener(view -> {
-            Intent intent = new Intent(Sign_inScreen.this, forget_passwordScreen.class);
-            //Log.d("TEST", "Forgot Password Button pressed");
-            startActivity(intent);
-            finish(); // Optional: closes the current activity
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start SecondActivity
+                Intent intent = new Intent(Sign_inScreen.this, Sign_inScreen.class);
+                startActivity(intent);
+            }
         });
-
-        // Adjust padding for system bars (optional)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-    }
-
-    // Handle Login
-    private void handleLogin() {
-        String email = usernameEditText.getText().toString().trim();
-        String password = passwordEditText.getText().toString().trim();
-
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Enter email and password", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Firebase login method
-        auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        FirebaseUser user = auth.getCurrentUser();
-                        Toast.makeText(this, "Login successful: " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                        // You can now navigate to another activity or update UI
-                        Intent intent = new Intent(Sign_inScreen.this, CompletedJobsPage.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Toast.makeText(this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
-    // Handle Registration
-    private void handleRegister() {
-        String email = usernameEditText.getText().toString().trim();
-        String password = passwordEditText.getText().toString().trim();
-
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Enter email and password", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Firebase register method
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        FirebaseUser user = auth.getCurrentUser();
-                        Toast.makeText(this, "Registration successful: " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                        // You can now navigate to another activity or update UI
-                    } else {
-                        Toast.makeText(this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
     }
 }
+
+

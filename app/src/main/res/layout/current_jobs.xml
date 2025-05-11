@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".current_jobs">
+    tools:context=".CurrentJobs">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Current Jobs"
         android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- ScrollView containing jobs -->
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
@@ -26,10 +27,8 @@
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@id/textView">
 
         <LinearLayout
             android:id="@+id/jobsContainer"
@@ -38,7 +37,12 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- Job cards here — unchanged -->
+            <!-- ... Job 1 to Job 5 as in your original file ... -->
+
+
             <!-- Job 1 -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,18 +50,7 @@
                 android:orientation="horizontal"
                 android:padding="10dp">
 
-                <Button
-                    android:id="@+id/complete1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@android:color/white"
-                    android:text="x"
-                    android:textColor="#0868a0"
-                    android:textSize="30sp" />
-
                 <TextView
-                    android:id="@+id/Description1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -76,7 +69,6 @@
                     android:text="▼"
                     android:textColor="#0868a0"
                     android:textSize="30sp" />
-
             </LinearLayout>
 
             <LinearLayout
@@ -84,7 +76,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="12dp">
+                android:padding="12dp"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/job1Text"
@@ -214,6 +207,7 @@
                     android:text="▼"
                     android:textColor="#0868a0"
                     android:textSize="30sp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -234,6 +228,7 @@
             </LinearLayout>
 
             <!-- Job 5 -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -279,16 +274,44 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="30dp" />
         </LinearLayout>
-
     </ScrollView>
 
+    <!-- Add Job Fragment Container (overlay, starts hidden) -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:name="com.example.hackstreet_boys.AddFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <!-- Floating Action Button: Add New Job -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Add new job"
+        app:layout_constraintBottom_toTopOf="@id/completedjobs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <!-- Completed Jobs Button -->
+    <Button
+        android:id="@+id/completedjobs"
+        android:layout_width="213dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:text="completed jobs"
+        android:textSize="23sp"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

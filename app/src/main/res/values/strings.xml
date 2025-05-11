@@ -5,4 +5,6 @@
     <string name="sign_up">Sign Up</string>
     <string name="email">Email</string>
     <string name="go_back">Go Back</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
