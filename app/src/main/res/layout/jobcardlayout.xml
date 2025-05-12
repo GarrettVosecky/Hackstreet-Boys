@@ -82,7 +82,7 @@
                 android:visibility="gone">
 
                 <ImageButton
-                    android:id="@+id/actionButton"
+                    android:id="@+id/trashButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
@@ -115,7 +115,7 @@
                     android:scaleY="1.2"
                     android:tint="#2E2E2E"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/actionButton"
+                    app:layout_constraintEnd_toStartOf="@+id/trashButton"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/Status"
                     app:layout_constraintTop_toBottomOf="@+id/seperator"

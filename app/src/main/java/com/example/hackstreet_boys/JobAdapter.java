@@ -1,11 +1,9 @@
 package com.example.hackstreet_boys;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -62,7 +60,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
     static class JobViewHolder extends RecyclerView.ViewHolder {
 
         TextView titleView, locationView, descriptionView, statusView, ownerView;
-        ImageButton actionButton, dropButton;
+        ImageButton trashButton, dropButton;
 
         ConstraintLayout descriptionLayout;
 
@@ -74,7 +72,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
             statusView = itemView.findViewById(R.id.Status);
             ownerView = itemView.findViewById(R.id.Owner);
             dropButton = itemView.findViewById(R.id.dropDown);
-            actionButton = itemView.findViewById(R.id.actionButton);
+            trashButton = itemView.findViewById(R.id.trashButton);
             descriptionLayout = itemView.findViewById(R.id.Description);
             dropButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,6 +87,12 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
                         dropButton.setRotation(270);
                         descriptionLayout.setVisibility(View.VISIBLE);
                     }
+                }
+            });
+            trashButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
                 }
             });
         }
