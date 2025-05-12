@@ -43,7 +43,7 @@
         </activity>
 
         <activity
-            android:name=".AddFragment"
+            android:name=".AddJobs"
             android:exported="true"
             android:label="@string/app_name">
 
@@ -51,7 +51,7 @@
 
         <!-- Completed Jobs Page (Explicit Launch & Deep Linking Support) -->
         <activity
-            android:name=".CompletedJobsPage"
+            android:name=".JobsList"
             android:exported="true">
         </activity>
 

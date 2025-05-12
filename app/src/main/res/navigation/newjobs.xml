@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.hackstreet_boys.AddFragment"
+        android:name="com.example.hackstreet_boys.AddJobs"
         android:label="fragment_add"
-        tools:layout="@layout/fragment_add" >
+        tools:layout="@layout/job_add" >
         <action
             android:id="@+id/action_addFragment_to_currentJobs"
             app:destination="@id/currentJobs" />

@@ -3,9 +3,6 @@ package com.example.hackstreet_boys;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class AddFragment extends AppCompatActivity {
+public class AddJobs extends AppCompatActivity {
 
     private EditText jobInfoEditText, titleIdEditText, locationEditText;
     private Button saveButton;
@@ -81,7 +78,7 @@ public class AddFragment extends AppCompatActivity {
 
                             db.collection("Jobs").add(data);
                             Toast.makeText(this, "Job successfully added", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(this, CompletedJobsPage.class);
+                            Intent intent = new Intent(this, JobsList.class);
                             startActivity(intent);
                             finish();
                         } else {

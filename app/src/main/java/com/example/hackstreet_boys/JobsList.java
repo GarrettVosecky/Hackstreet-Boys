@@ -11,9 +11,6 @@ import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +21,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompletedJobsPage extends AppCompatActivity {
+public class JobsList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +30,12 @@ public class CompletedJobsPage extends AppCompatActivity {
         setContentView(R.layout.activity_completed_jobs_page);
 
         Button logoutButton = findViewById(R.id.signout);
-        ImageButton addJob = findViewById(R.id.AddJob);
+        ImageButton addJob = findViewById(R.id.addJobSwitch);
 
         addJob.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CompletedJobsPage.this, AddFragment.class);
+                Intent intent = new Intent(JobsList.this, AddJobs.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +43,7 @@ public class CompletedJobsPage extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(CompletedJobsPage.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(JobsList.this);
 
                 // Set the message show for the Alert time
                 builder.setMessage("Are you sure you want to sign out?");
@@ -62,7 +59,7 @@ public class CompletedJobsPage extends AppCompatActivity {
                 builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
                     FirebaseAuth auth = FirebaseAuth.getInstance();
                     auth.signOut();
-                    Intent intent = new Intent(CompletedJobsPage.this, Sign_inScreen.class);
+                    Intent intent = new Intent(JobsList.this, Sign_inScreen.class);
                     startActivity(intent);
                     finish();
                     dialog.cancel();

@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CompletedJobsPage">
+    tools:context=".JobsList">
 
     <!-- Title -->
 
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/AddJob"
+        android:id="@+id/addJobSwitch"
         style="@android:style/Widget.Material.Light.ImageButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -76,7 +76,6 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
         android:backgroundTint="@color/blue"
-        android:tint="#E2E2E2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
