@@ -80,7 +80,7 @@ public class Sign_up extends AppCompatActivity {
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
-                   // progressDialog.dismiss();
+                    // progressDialog.dismiss();
 
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
@@ -90,8 +90,8 @@ public class Sign_up extends AppCompatActivity {
                         data.put("VerificationLevel", 1);
                         data.put("FirstName", firstname);
                         data.put("LastName", lastname);
-                        
-                        db.collection("Users").document(user.getUid()).set(data);
+
+                        db.collection("Users").document(user.getEmail()).set(data);
 
 
                     } else {

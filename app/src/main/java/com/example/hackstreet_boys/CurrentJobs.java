@@ -55,7 +55,6 @@ public class CurrentJobs extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.floatingActionButton3);
         fab.setOnClickListener(v -> {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragmentContainer, new AddFragment())
                     .addToBackStack(null)
                     .commit();
 

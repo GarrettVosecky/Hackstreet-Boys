@@ -27,12 +27,12 @@
         app:layout_constraintVertical_bias="0.213" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/editJobTitle"
         android:layout_width="410dp"
         android:layout_height="43dp"
         android:layout_marginEnd="1dp"
         android:ems="10"
-        android:hint="Applicator ID"
+        android:hint="Title"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,12 +42,12 @@
         app:layout_constraintVertical_bias="0.327" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/editJobDescription"
         android:layout_width="409dp"
         android:layout_height="43dp"
         android:layout_marginEnd="2dp"
         android:ems="10"
-        android:hint="Addtional info"
+        android:hint="Description"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.535" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/editJobLocation"
         android:layout_width="410dp"
         android:layout_height="43dp"
         android:layout_marginEnd="1dp"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.428" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"

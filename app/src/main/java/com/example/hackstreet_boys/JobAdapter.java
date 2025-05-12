@@ -53,6 +53,12 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
         return jobList.size();
     }
 
+    public void addJobItem(JobCard job)
+    {
+        this.jobList.add(job);
+        notifyDataSetChanged();
+    }
+
     static class JobViewHolder extends RecyclerView.ViewHolder {
 
         TextView titleView, locationView, descriptionView, statusView, ownerView;

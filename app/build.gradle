@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:20.1.0'
 
     implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
 
     implementation 'com.google.firebase:firebase-core:21.0.0'  // Firebase core
     implementation 'androidx.fragment:fragment:1.5.5'  // If Fragment class is not being resolved
