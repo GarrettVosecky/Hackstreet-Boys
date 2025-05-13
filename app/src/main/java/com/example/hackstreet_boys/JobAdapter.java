@@ -5,13 +5,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.List;
 
 public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
 {
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private List<JobCard> jobList;
     public JobAdapter(List<JobCard> jobList) {
         this.jobList = jobList;
@@ -44,6 +52,26 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
                 holder.statusView.setText("Being worked on by " + jobCard.getApplicant());
             }
         }
+
+        holder.trashButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.collection("Jobs").document(jobCard.getID()).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful())
+                        {
+                            holder.itemView.setVisibility(View.GONE);
+                            Toast.makeText(holder.descriptionLayout.getContext(), "Job has been successfully deleted", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -87,12 +115,6 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
                         dropButton.setRotation(270);
                         descriptionLayout.setVisibility(View.VISIBLE);
                     }
-                }
-            });
-            trashButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
                 }
             });
         }

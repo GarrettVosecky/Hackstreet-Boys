@@ -80,7 +80,7 @@ public class JobsList extends AppCompatActivity {
         db.collection("Jobs").get().addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            jobList.add(new JobCard(document.getString("Title"), document.getString("Location"), document.getString("Description"), document.getString("OwnerName"), document.getBoolean("Completed"), document.getString("ApplicantName")));
+                            jobList.add(new JobCard(document.getId(), document.getString("Title"), document.getString("Location"), document.getString("Description"), document.getString("OwnerName"), document.getBoolean("Completed"), document.getString("ApplicantName")));
                         }
                         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
