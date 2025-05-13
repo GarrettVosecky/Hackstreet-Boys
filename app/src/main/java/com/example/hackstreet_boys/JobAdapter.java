@@ -80,9 +80,9 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
         return jobList.size();
     }
 
-    public void addJobItem(JobCard job)
+    public void changeJobList(List<JobCard> jobList)
     {
-        this.jobList.add(job);
+        this.jobList = jobList;
         notifyDataSetChanged();
     }
 

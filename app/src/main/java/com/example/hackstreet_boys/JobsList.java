@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.credentials.exceptions.domerrors.ConstraintError;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +33,24 @@ public class JobsList extends AppCompatActivity {
 
         Button logoutButton = findViewById(R.id.signout);
         ImageButton addJob = findViewById(R.id.addJobSwitch);
+        ImageButton filterDropDown = findViewById(R.id.filterDropDown);
+        ConstraintLayout filterSection = findViewById(R.id.filteringSection);
+
+        filterDropDown.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (filterSection.getVisibility() == View.VISIBLE)
+                {
+                    filterDropDown.setRotation(90);
+                    filterSection.setVisibility(View.GONE);
+                }
+                else
+                {
+                    filterDropDown.setRotation(270);
+                    filterSection.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         addJob.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -39,6 +59,8 @@ public class JobsList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
