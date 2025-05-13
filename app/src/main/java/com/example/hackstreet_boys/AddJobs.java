@@ -19,23 +19,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class AddJobs extends AppCompatActivity {
 
     private EditText jobInfoEditText, titleIdEditText, locationEditText;
-    private Button saveButton;
+    private Button saveButton, backButton;
 
     private FirebaseAuth auth;
-
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.fragment_add);
-        // Initialize Firebase reference
+        setContentView(R.layout.fragment_add); // Ensure this layout matches your XML
+
+        // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance();
 
         // Link views
@@ -43,8 +41,17 @@ public class AddJobs extends AppCompatActivity {
         titleIdEditText = findViewById(R.id.editJobTitle);
         locationEditText = findViewById(R.id.editJobLocation);
         saveButton = findViewById(R.id.addButton);
+        backButton = findViewById(R.id.Backbtn);
 
+        // Save button logic
         saveButton.setOnClickListener(v -> saveJobToFirebase());
+
+        // Back button logic
+        backButton.setOnClickListener(v -> {
+            Intent intent = new Intent(AddJobs.this, JobsList.class);
+            startActivity(intent);
+            finish(); // Prevents stacking this activity
+        });
     }
 
     private void saveJobToFirebase() {
@@ -58,36 +65,41 @@ public class AddJobs extends AppCompatActivity {
         }
 
         FirebaseUser user = auth.getCurrentUser();
+        if (user == null) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         DocumentReference docRef = db.collection("Users").document(user.getEmail());
 
-        docRef.get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        // Document was successfully fetched
-                        DocumentSnapshot document = task.getResult();
-                        if (document != null && document.exists()) {
-                            // Step 5: Get the field from the document
-                            Map<String, Object> data = new HashMap<>();
-                            data.put("Title", titleId);
-                            data.put("Location", location);
-                            data.put("Description", jobInfo);
-                            data.put("OwnerName", document.getString("FirstName") + " " + document.getString("LastName"));
-                            data.put("Completed", false);
-                            data.put("ApplicantName", "");
+        docRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (document != null && document.exists()) {
+                    Map<String, Object> data = new HashMap<>();
+                    data.put("Title", titleId);
+                    data.put("Location", location);
+                    data.put("Description", jobInfo);
+                    data.put("OwnerName", document.getString("FirstName") + " " + document.getString("LastName"));
+                    data.put("Completed", false);
+                    data.put("ApplicantName", "");
 
-                            db.collection("Jobs").add(data);
-                            Toast.makeText(this, "Job successfully added", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(this, JobsList.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Log.d("Firestore", "No such document");
-                        }
-                    } else {
-                        // Handle failure
-                        Log.w("Firestore", "Error getting document.", task.getException());
-                    }
-                });
+                    db.collection("Jobs").add(data)
+                            .addOnSuccessListener(doc -> {
+                                Toast.makeText(this, "Job successfully added", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(this, JobsList.class));
+                                finish();
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(this, "Failed to add job", Toast.LENGTH_SHORT).show();
+                                Log.e("Firestore", "Error adding job", e);
+                            });
+                } else {
+                    Log.d("Firestore", "No such document");
+                }
+            } else {
+                Log.w("Firestore", "Error getting document.", task.getException());
+            }
+        });
     }
 }
