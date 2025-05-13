@@ -61,7 +61,8 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder>
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful())
                         {
-                            holder.itemView.setVisibility(View.GONE);
+                            jobList.remove(position);
+                            notifyItemRemoved(position);
                             Toast.makeText(holder.descriptionLayout.getContext(), "Job has been successfully deleted", Toast.LENGTH_SHORT).show();
                         }
                         else
