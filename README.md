@@ -1,1 +1,1 @@
-ID Table of Contents:
+start on a sign in with button to sign up. when you sign up the login is saved. then you login. then you move to jobs list. in this list you can add jobs to the list. in the jobs list you can expand to see the job details. and see the field layout. where a contracktor will know where to enter. the end. 
